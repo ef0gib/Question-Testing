@@ -1,6 +1,7 @@
 package com.example.questiontesting.repositories;
 
 import com.example.questiontesting.entity.Profile;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -14,4 +15,8 @@ public interface ProfileRepository extends JpaRepository<Profile, Long> {
 
     Optional<Profile> findByIdAndName(Long id, String name); // пример конструирования метода
 */
+
+    @Override
+    @EntityGraph(value = "all-fields")
+    Optional<Profile> findById(Long aLong);
 }
