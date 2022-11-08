@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  question:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:9393"
+    environment:
+      DB_DRIVER: org.postgresql.Driver
+      DB_URL: jdbc:postgresql://postgresDB:5432/hibernate-ex
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
+    networks:
+      - mynetwork
+    depends_on:
+      - postgresDB
+
+  postgresDB:
+    image: postgres
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hibernate-ex
+    networks:
+      - mynetwork
+    volumes:
+      - /var/lib/postgresql/data/pgdata
+
+volumes:
+  pgdata:
+
+networks:
+  mynetwork:

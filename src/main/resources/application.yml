@@ -1,13 +1,21 @@
 spring:
+  liquibase:
+    change-log: db/changelog/db.changelog-master.xml
+    enabled: true
+    url: ${spring.datasource.url}
+    driver-class-name: ${spring.datasource.driver-class-name}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/hibernate-ex
-    username: postgres
-    password: postgres
+    driver-class-name: ${DB_DRIVER}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: validate
       dialect: org.hibernate.dialect.PostgreSQL94Dialect
     show-sql: true
+
 server:
   port: 9393
