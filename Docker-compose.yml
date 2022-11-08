@@ -23,6 +23,7 @@ services:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: hibernate-ex
+      PGDATA: /var/lib/postgresql/data/some_name/
     networks:
       - mynetwork
     volumes:
