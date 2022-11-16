@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd">
+
+    <changeSet id="insert-table-questions" author="efgib">
+        <insert tableName="questions">
+            <column name="que_name" value="Ваш любимый цвет" />
+            <column name="num_of_corr" value="1" />
+            <column name="que_lvl_id" valueComputed="(SELECT lvl_id FROM levels WHERE lvl_name = 'Junior')" />
+            <column name="que_prof_id" valueComputed="(SELECT prof_id FROM profiles WHERE prof_name = 'Developer')" />
+        </insert>
+        <insert tableName="questions">
+            <column name="que_name" value="Ваш любимый браузер" />
+            <column name="num_of_corr" value="1" />
+            <column name="que_lvl_id" valueComputed="(SELECT lvl_id FROM levels WHERE lvl_name = 'Middle')" />
+            <column name="que_prof_id" valueComputed="(SELECT prof_id FROM profiles WHERE prof_name = 'Developer')" />
+        </insert>
+        <insert tableName="questions">
+            <column name="que_name" value="Ваша любимая операционная система" />
+            <column name="num_of_corr" value="1" />
+            <column name="que_lvl_id" valueComputed="(SELECT lvl_id FROM levels WHERE lvl_name = 'Senior')" />
+            <column name="que_prof_id" valueComputed="(SELECT prof_id FROM profiles WHERE prof_name = 'Developer')" />
+        </insert>
+
+        <insert tableName="questions">
+            <column name="que_name" value="Блондинки, брюнетки или рыжие?" />
+            <column name="num_of_corr" value="1" />
+            <column name="que_lvl_id" valueComputed="(SELECT lvl_id FROM levels WHERE lvl_name = 'Junior')" />
+            <column name="que_prof_id" valueComputed="(SELECT prof_id FROM profiles WHERE prof_name = 'Tester')" />
+        </insert>
+        <insert tableName="questions">
+            <column name="que_name" value="В каком году заключен Кючук-Кайнарджийский мир?" />
+            <column name="num_of_corr" value="1" />
+            <column name="que_lvl_id" valueComputed="(SELECT lvl_id FROM levels WHERE lvl_name = 'Middle')" />
+            <column name="que_prof_id" valueComputed="(SELECT prof_id FROM profiles WHERE prof_name = 'Tester')" />
+        </insert>
+        <insert tableName="questions">
+            <column name="que_name" value="Desktop, laptop или tablet?" />
+            <column name="num_of_corr" value="1" />
+            <column name="que_lvl_id" valueComputed="(SELECT lvl_id FROM levels WHERE lvl_name = 'Senior')" />
+            <column name="que_prof_id" valueComputed="(SELECT prof_id FROM profiles WHERE prof_name = 'Tester')" />
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>

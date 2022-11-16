@@ -31,8 +31,12 @@ public class ProfileService {
     public EntityModel<ProfileDto> getById(Long id) {
 //        Profile profile = profileRepository.getById(id); // унаследован от JpaRepository
 //        Profile profile = byId.get(); // можно так, но рез-т может быть пустым
+        System.out.println("ProfileService.getById(): id=" + id);
         Profile profile = profileRepository.findById(id).orElseThrow(() -> new NotFoundProfileException(id));// метод hibernate
+        System.out.println("ProfileService.getById(): profile=" + profile);
         ProfileDto profileDto = mapper.mapper(profile, ProfileDto.class);
+
+//        System.out.println("ProfileService.getById(): profile=" + profile /*+ ", profileDto=" + profileDto*/);
 
 ////        return profileDto;
         return assembler.toModel(profileDto);

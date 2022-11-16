@@ -17,6 +17,6 @@ public interface ProfileRepository extends JpaRepository<Profile, Long> {
 */
 
     @Override
-    @EntityGraph(value = "all-fields")
+    @EntityGraph(value = "profile-fields")
     Optional<Profile> findById(Long aLong);
 }

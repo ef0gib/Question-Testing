@@ -15,5 +15,6 @@ public class LevelDto {
 
     private Long id;
     private String name;
+    @ToString.Exclude
     private List<QuestionDto> questions;
 }

@@ -12,6 +12,27 @@ import javax.persistence.*;
 @ToString
 @EqualsAndHashCode
 @RequiredArgsConstructor
+
+@NamedEntityGraphs(
+        value = {@NamedEntityGraph(
+                name="answer-fields",
+                attributeNodes = {
+                        @NamedAttributeNode(value = "id"),
+                        @NamedAttributeNode(value = "name"),
+                        @NamedAttributeNode(value = "question", subgraph = "answer-question-fields")
+                },
+                subgraphs = {@NamedSubgraph(name = "answer-question-fields",
+                        attributeNodes = {
+                                @NamedAttributeNode(value = "id"),
+                                @NamedAttributeNode(value = "name"),
+                                @NamedAttributeNode(value = "profile"),
+                                @NamedAttributeNode(value = "level")
+                        })
+
+                }
+        )}
+)
+
 public class Answer {
 
     @Id

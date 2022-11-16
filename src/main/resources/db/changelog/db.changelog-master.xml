@@ -21,4 +21,10 @@
 
     <include file="changeSet-V2/changelog-v2.xml" relativeToChangelogFile="true"/>
 
+    <changeSet id="init-db-v3" author="efgib">
+        <tagDatabase tag="init-db-v3"/>
+    </changeSet>
+
+    <include file="changeSet-V3/changelog-v3.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>

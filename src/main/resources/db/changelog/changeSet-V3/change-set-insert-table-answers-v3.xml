@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.17.xsd">
+
+    <changeSet id="insert-table-answers" author="efgib">
+        <insert tableName="answers">
+            <column name="ans_name" value="Брюнетки"></column>
+            <column name="ans_que_id" valueComputed="(SELECT que_id FROM questions WHERE que_name = 'Блондинки, брюнетки или рыжие?')"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

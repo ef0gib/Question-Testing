@@ -15,5 +15,6 @@ public class ProfileDto {
 
     private Long id;
     private String name;
+    @ToString.Exclude
     private List<QuestionDto> questions;
 }

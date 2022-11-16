@@ -1,0 +1,1 @@
+insert into levels (lvl_name) values ('Junior'), ('Middle'), ('Senior')

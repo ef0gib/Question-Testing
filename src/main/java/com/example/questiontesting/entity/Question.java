@@ -14,6 +14,43 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode
+
+@NamedEntityGraphs(
+        value = {@NamedEntityGraph(
+                name="question-fields",
+                attributeNodes = {
+                        @NamedAttributeNode(value = "id"),
+                        @NamedAttributeNode(value = "name"),
+                        @NamedAttributeNode(value = "numOfCorr"),
+                        @NamedAttributeNode(value = "answers", subgraph = "question-answers-fields"),
+                        @NamedAttributeNode(value = "profile", subgraph = "question-profile-fields"),
+                        @NamedAttributeNode(value = "level", subgraph = "question-level-fields")
+                },
+                subgraphs = {
+                        @NamedSubgraph(
+                                name = "question-answers-fields",
+                                attributeNodes = {
+                                        @NamedAttributeNode(value = "id"),
+                                        @NamedAttributeNode(value = "name"),
+//                                        @NamedAttributeNode(value = "question")
+                                }),
+                        @NamedSubgraph(name = "question-profile-fields",
+                                attributeNodes = {
+                                        @NamedAttributeNode(value = "id"),
+                                        @NamedAttributeNode(value = "name"),
+                                        @NamedAttributeNode(value = "questions")
+                                }),
+                        @NamedSubgraph(name = "question-level-fields",
+                                attributeNodes = {
+                                        @NamedAttributeNode(value = "id"),
+                                        @NamedAttributeNode(value = "name"),
+                                        @NamedAttributeNode(value = "questions")
+                                })
+
+                }
+        )}
+)
+
 public class Question {
 
     @Id

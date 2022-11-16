@@ -17,6 +17,7 @@ public class ProfileController {
 
     @GetMapping("/get/{id}")
     public ResponseEntity<EntityModel<ProfileDto>> getProfileDtoById(@PathVariable Long id) { // берет id из body запроса
+        System.out.println("ProfileController.getProfileDtoById(): id=" + id);
         EntityModel<ProfileDto> byId = service.getById(id);
         return ResponseEntity.ok().body(byId);
     }

@@ -14,6 +14,27 @@ import java.util.List;
 @Setter
 @ToString
 @EqualsAndHashCode
+
+@NamedEntityGraphs(
+        value = {@NamedEntityGraph(
+                name="level-fields",
+                attributeNodes = {
+                        @NamedAttributeNode(value = "id"),
+                        @NamedAttributeNode(value = "name"),
+                        @NamedAttributeNode(value = "questions", subgraph = "level-questions-fields")
+                },
+                subgraphs = {@NamedSubgraph(name = "level-questions-fields",
+                        attributeNodes = {
+                                @NamedAttributeNode(value = "id"),
+                                @NamedAttributeNode(value = "name"),
+                                @NamedAttributeNode(value = "level"),
+                                @NamedAttributeNode(value = "numOfCorr")
+                        })
+                }
+        )}
+)
+
+
 public class Level {
 
     @Id

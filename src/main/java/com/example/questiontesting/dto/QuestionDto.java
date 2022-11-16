@@ -18,6 +18,8 @@ public class QuestionDto {
     private Long numOfCorr;
     @ToString.Exclude
     private List<AnswerDto> answers;
+    @ToString.Exclude
     private ProfileDto profile;
+    @ToString.Exclude
     private LevelDto level;
 }
