@@ -20,16 +20,17 @@ import java.util.List;
                 attributeNodes = {
                         @NamedAttributeNode(value = "id"),
                         @NamedAttributeNode(value = "name"),
-                        @NamedAttributeNode(value = "questions", subgraph = "profile-questios-fields")
-                },
-                subgraphs = {@NamedSubgraph(name = "profile-questios-fields",
-                        attributeNodes = {
-                                @NamedAttributeNode(value = "id"),
-                                @NamedAttributeNode(value = "name"),
-                                @NamedAttributeNode(value = "level"),
-                                @NamedAttributeNode(value = "numOfCorr")
-                        })
+//                        @NamedAttributeNode(value = "questions", subgraph = "profile-questios-fields")
                 }
+//                ,
+//                subgraphs = {@NamedSubgraph(name = "profile-questios-fields",
+//                        attributeNodes = {
+//                                @NamedAttributeNode(value = "id"),
+//                                @NamedAttributeNode(value = "name"),
+//                                @NamedAttributeNode(value = "level"),
+//                                @NamedAttributeNode(value = "numOfCorr")
+//                        })
+//                }
         )}
 )
 public class Profile {
@@ -41,7 +42,9 @@ public class Profile {
     @Column(name = "prof_name")
     private String name;
 
+/*
     @OneToMany(mappedBy = "profile")
     @ToString.Exclude
     private List<Question> questions;
+*/
 }

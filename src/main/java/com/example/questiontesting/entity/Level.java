@@ -21,16 +21,17 @@ import java.util.List;
                 attributeNodes = {
                         @NamedAttributeNode(value = "id"),
                         @NamedAttributeNode(value = "name"),
-                        @NamedAttributeNode(value = "questions", subgraph = "level-questions-fields")
-                },
-                subgraphs = {@NamedSubgraph(name = "level-questions-fields",
-                        attributeNodes = {
-                                @NamedAttributeNode(value = "id"),
-                                @NamedAttributeNode(value = "name"),
-                                @NamedAttributeNode(value = "level"),
-                                @NamedAttributeNode(value = "numOfCorr")
-                        })
+//                        @NamedAttributeNode(value = "questions", subgraph = "level-questions-fields")
                 }
+//                ,
+//                subgraphs = {@NamedSubgraph(name = "level-questions-fields",
+//                        attributeNodes = {
+//                                @NamedAttributeNode(value = "id"),
+//                                @NamedAttributeNode(value = "name"),
+//                                @NamedAttributeNode(value = "level"),
+//                                @NamedAttributeNode(value = "numOfCorr")
+//                        })
+//                }
         )}
 )
 
@@ -44,6 +45,9 @@ public class Level {
     @Column(name = "lvl_name")
     private String name;
 
+/*
     @OneToMany(mappedBy = "level")
+    @ToString.Exclude
     private List<Question> questions;
+*/
 }
