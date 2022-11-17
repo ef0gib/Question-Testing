@@ -7,11 +7,14 @@ spring:
     user: ${spring.datasource.username}
     password: ${spring.datasource.password}
   datasource:
+
+# для запуска в docker
     driver-class-name: ${DB_DRIVER}
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
 
+# для запуска локально
 #    driver-class-name: org.postgresql.Driver
 #    url: jdbc:postgresql://localhost:5432/hibernate-ex
 #    username: postgres
