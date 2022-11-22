@@ -9,16 +9,16 @@ spring:
   datasource:
 
 # для запуска в docker
-    driver-class-name: ${DB_DRIVER}
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+#    driver-class-name: ${DB_DRIVER}
+#    url: ${DB_URL}
+#    username: ${DB_USERNAME}
+#    password: ${DB_PASSWORD}
 
 # для запуска локально
-#    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:5432/hibernate-ex
-#    username: postgres
-#    password: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/hibernate-ex
+    username: postgres
+    password: postgres
 
   jpa:
     hibernate:
@@ -28,3 +28,17 @@ spring:
 
 server:
   port: 9393
+  servlet:
+    context-path: "/api"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  endpoint:
+    health:
+      enabled: true
+    shutdown:
+      enabled: true
